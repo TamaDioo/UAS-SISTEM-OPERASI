@@ -15,8 +15,8 @@
 |--|--|--|
 |**No**| **Fitur** | **Detail** |
 | 1 | Lihat Direktori | Melihat daftar isi sebuah direktori dengan perintah ***ls -l*** |
-| 2 | Menghitung jumlah kata dalam file teks | Menghapus file dari sebuah direktori dengan perintah ***rm -i*** dan menghapus sebuah folder dengan perintah ***wc -w***|
-| 3 |  | ***cp*** |
+| 2 | Menghitung jumlah kata dalam file teks | Menghitung jumlah kata dalam file teks dengan perintah ***wc -w***|
+| 3 | Menampilkan tanggal dan waktu sistem saat ini | ***$date*** |
 | 4 |  | ***mv*** |
 | 5 |  | ***gzip -c*** |
 | 6 |  | ***gunzip*** |
