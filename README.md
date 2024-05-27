@@ -7,10 +7,11 @@
 | NIM | **2341720098** |
 | Nama Lengkap | **Dio Andika Pradana Mulia Tama** |
 | Kelas | TI-1B |
-| Dosen Pengampu | [Mohammad Faried Rahmat, S.ST., M.Tr.T](https://github.com/mrhmt80) <br> Mohammad Faried Rahmat, S.ST., M.Tr.T|
+| Dosen Pengampu 1 | [Erfan Rohadi, S.T., M.Eng., Ph.D.]
+| Dosen Pengampu 2 | [Mohammad Faried Rahmat, S.ST., M.Tr.T](https://github.com/mrhmt80) <br> 
 
 # SISTEM OPERASI
-### Fitur Program Script Shell
+### Fitur Slnx
 |  |  |  |
 |--|--|--|
 |**No**| **Fitur** | **Detail** |
@@ -27,7 +28,3 @@
 | 11 | Hitung jumlah folder dalam direktori | Menghitung jumlah folder dalam direktori dengan perintah ***find "$1" -type d \| wc -l*** |
 | 12 | Tampilkan daftar proses yang sedang berjalan | Menampilkan daftar proses yang sedang berjalan dengan perintah ***ps -ef*** |
 | 13 | Keluar program | Menggunakan break untuk keluar program ketika input menu = 13 |
-
-# SCREENSHOT PROGRAM
-
-| - Program Shell - UAS Praktikum Sistem Operasi |
