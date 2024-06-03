@@ -2,13 +2,21 @@
 
 # Beberapa fungsi untuk fitur tertentu
 show_files() {
-    echo "Daftar File dalam Direktori: $1"
-    ls -l $1
+    if [ -d "$1" ]; then
+        echo "Daftar File dalam Direktori: $1"
+        ls -l "$1"
+    else
+        echo "Direktori $1 tidak ditemukan!"
+    fi
 }
 
 count_words() {
-    echo "Jumlah Kata dalam File: $1"
-    wc -w $1 | awk '{print $1}'
+    if [ -f "$1" ]; then
+        echo "Jumlah Kata dalam File: $1"
+        wc -w "$1" | awk '{print $1}'
+    else
+        echo "File $1 tidak ditemukan!"
+    fi
 }
 
 show_date() {
@@ -23,8 +31,12 @@ show_dir() {
 }
 
 count_chars() {
-    echo "Jumlah character dalam File: $1"
-    wc -m $1 | awk '{print $1}'
+    if [ -f "$1" ]; then
+        echo "Jumlah karakter dalam File: $1"
+        wc -m "$1" | awk '{print $1}'
+    else
+        echo "File $1 tidak ditemukan!"
+    fi
 }
 
 show_info() {
@@ -40,37 +52,51 @@ show_active_user() {
 }
 
 count_folder() {
-    folder_count=$(find "$1" -type d | wc -l)
-    echo "Jumlah direktori di dalam $1 adalah: $folder_count"
+    if [ -d "$1" ]; then
+        folder_count=$(find "$1" -type d | wc -l)
+        echo "Jumlah direktori di dalam $1 adalah: $folder_count"
+    else
+        echo "Direktori $1 tidak ditemukan!"
+    fi
 }
 
 download_fromURL() {
-	wget "$url" -O downloaded_file.txt
-	echo "File berhasil diunduh dari $url"
+    wget "$1" -O downloaded_file.txt
+    if [ $? -eq 0 ]; then
+        echo "File berhasil diunduh dari $1"
+    else
+        echo "Gagal mengunduh file dari $1"
+    fi
 }
 
 # Meminta input dari pengguna untuk memilih fitur
 while true; do
-echo "Pilih Fitur yang Ingin Dijalankan:"
-echo "1. Tampilkan Daftar File dalam Direktori"
-echo "2. Hitung Jumlah Kata dalam File Teks"
-echo "3. Lihat tanggal dan waktu saat ini"
-echo "4. Lihat direktori saat ini"
-echo "5. Tampilkan kalender bulan ini"
-echo "6. Hitung jumlah karakter dalam file"
-echo "7. Tampilkan informasi sistem"
-echo "8. Unduh file dari URL"
-echo "9. Hitung jumlah pengguna aktif"
-echo "10. Tampilkan penggunaan memori"
-echo "11. Hitung jumlah folder dalam direktori"
-echo "12. Tampilkan daftar proses yang sedang berjalan"
-echo "13. Keluar program"
+echo "==================================================="
+echo "|    	   Selamat datang di Slnx                 |"
+echo "|     	Developer: Dio Andika P. M. T.    	  |"
+echo "==================================================="
+echo "|Pilih Fitur yang Ingin Dijalankan:		  |"
+echo "|1. Tampilkan Daftar File dalam Direktori         |"
+echo "|2. Hitung Jumlah Kata dalam File Teks            |"
+echo "|3. Lihat tanggal dan waktu saat ini              |"
+echo "|4. Lihat direktori saat ini                      |"
+echo "|5. Tampilkan kalender bulan ini                  |"
+echo "|6. Hitung jumlah karakter dalam file             |"
+echo "|7. Tampilkan informasi sistem                    |"
+echo "|8. Unduh file dari URL                           |"
+echo "|9. Hitung jumlah pengguna aktif                  |"
+echo "|10. Tampilkan penggunaan memori                  |"
+echo "|11. Hitung jumlah folder dalam direktori         |"
+echo "|12. Tampilkan daftar proses yang sedang berjalan |"
+echo "|13. Keluar program                               |"
+echo "==================================================="
 read choice
+echo "==================================================="
 
 # Menjalankan fitur yang dipilih berdasarkan input pengguna
 case $choice in
     1)
-        echo "Masukkan direktori yang ingin ditampilkan:"
+	echo "Masukkan direktori yang ingin ditampilkan:"
         read directory
         show_files $directory
         ;;
@@ -92,7 +118,7 @@ case $choice in
 	cal
 	;;
     6)
-	echo "Masukkan nama file teks yang ingin dihitung jumlah karakternya"
+	echo "Masukkan nama file teks yang ingin dihitung jumlah karakternya:"
 	read file
 	count_chars $file
 	;;
@@ -101,7 +127,7 @@ case $choice in
         show_info
         ;;
     8)
-        echo "Masukkan URL yang ingin didownload"
+        echo "Masukkan URL yang ingin didownload:"
         read url
         download_fromURL $url
         ;;
@@ -112,7 +138,7 @@ case $choice in
         free -h
         ;;
     11)
-        echo "Masukkan path yang ingin di hitung direktorinya"
+        echo "Masukkan path yang ingin di hitung direktorinya:"
         read d
         count_folder $d
         ;;
