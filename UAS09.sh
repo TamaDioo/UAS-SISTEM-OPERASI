@@ -96,7 +96,7 @@ echo "==================================================="
 # Menjalankan fitur yang dipilih berdasarkan input pengguna
 case $choice in
     1)
-	    echo "Masukkan direktori yang ingin ditampilkan:"
+	echo "Masukkan direktori yang ingin ditampilkan:"
         read directory
         show_files $directory
         ;;
@@ -106,22 +106,22 @@ case $choice in
         count_words $file
         ;;
     3)
-	    echo "Tanggal dan waktu saat ini"
-	    show_date
-	    ;;
+	echo "Tanggal dan waktu saat ini"
+	show_date
+	;;
     4)
-	    echo "Posisi direktori saat ini"
-	    show_dir
-	    ;;
+	echo "Posisi direktori saat ini"
+	show_dir
+	;;
     5)
-	    echo "Kalender bulan ini"
-	    cal
-	    ;;
+	echo "Kalender bulan ini"
+	cal
+	;;
     6)
-	    echo "Masukkan nama file teks yang ingin dihitung jumlah karakternya:"
-	    read file
-	    count_chars $file
-	    ;;
+	echo "Masukkan nama file teks yang ingin dihitung jumlah karakternya:"
+	read file
+	count_chars $file
+	;;
     7)
         echo "Informasi Sistem:"
         show_info
